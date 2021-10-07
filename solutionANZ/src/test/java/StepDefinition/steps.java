@@ -36,11 +36,12 @@ public class steps {
 		driver.findElement(By.xpath("//input[@aria-describedby='q3q3i1 q3q3i2']")).sendKeys("100");
 		driver.findElement(By.xpath("//input[@aria-describedby='q3q5i1']")).sendKeys("10,000");
 		driver.findElement(By.id("btnBorrowCalculater")).click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		 WebElement Amount = driver.findElement(By.xpath("//span[@id='borrowResultTextAmount']"));
 	     String Amounttext=Amount.getText();
     	JavascriptExecutor js = (JavascriptExecutor) driver;
     	js.executeScript("window.scrollBy(0,250)","");
-    	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    	driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
     	Assert.assertEquals(Amounttext , "$508,000");
     	System.out.println("Amount is displayed");
     			
@@ -73,6 +74,7 @@ public class steps {
 	@Then("^user validate the Error message$")
 	public void user_validate_the_Error_message() throws Throwable {
 		WebElement popup = driver.findElement(By.xpath("//div[@class='box--left text--center']/span"));
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		String popuptext=popup.getText();
 		         Assert.assertEquals(popuptext , "Based on the details you've entered, we're unable to give you an estimate of your borrowing power with this calculator. For questions, call us on 1800 035 500.");
 		         System.out.println("Warning popup message is displayed");
