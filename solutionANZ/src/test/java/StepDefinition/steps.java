@@ -28,16 +28,16 @@ public class steps {
 
 	@When("^user fill all the details and vaidate the borrowing estimate$")
 	public void user_fill_all_the_details_and_vaidate_the_borrowing_estimate() throws Throwable {
-		//driver. findElement(By.xpath("//input[@id='application type single']")).click();
-		driver.findElement(By.xpath("//span[@id='q2q1i1']/following-sibling::input")).click();
-		driver.findElement(By.xpath("//span[@id-'q2qli1']/following-sibling::input")).sendKeys("80,000");
-		driver.findElement(By.xpath("//input[@aria-describedby='q2q2i1q2q2i2']")).sendKeys("10,000");
-		driver.findElement(By.xpath("//input[@aria-describedby='q3qli1 q3qli2']")).sendKeys("500");
-		driver.findElement(By.xpath("//input[@aria-describedby='q3q3i1 q3q1i2']")).sendKeys("100");
-		driver.findElement(By.xpath("//input[@aria-describedby='q3q5il']")).sendKeys("10,000");
+		 //     driver.findElement(By.xpath("//input[@id='application_type_single']")).click();
+		 driver.findElement(By.xpath("//span[@id='q2q1i1']/following-sibling::input")).click();
+		 driver.findElement(By.xpath("//span[@id='q2q1i1']/following-sibling::input")).sendKeys("80,000");
+		 driver.findElement(By.xpath("//input[@aria-describedby='q2q2i1 q2q2i2']")).sendKeys("10,000");
+		driver.findElement(By.xpath("//input[@aria-describedby='q3q1i1 q3q1i2']")).sendKeys("500");
+		driver.findElement(By.xpath("//input[@aria-describedby='q3q3i1 q3q3i2']")).sendKeys("100");
+		driver.findElement(By.xpath("//input[@aria-describedby='q3q5i1']")).sendKeys("10,000");
 		driver.findElement(By.id("btnBorrowCalculater")).click();
-		WebElement Amount = driver.findElement (By.xpath("//span[@id-'borrowResultTextAmount']")) ;
-		String Amounttext=Amount.getText();
+		 WebElement Amount = driver.findElement(By.xpath("//span[@id='borrowResultTextAmount']"));
+	     String Amounttext=Amount.getText();
     	JavascriptExecutor js = (JavascriptExecutor) driver;
     	js.executeScript("window.scrollBy(0,250)","");
     	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
